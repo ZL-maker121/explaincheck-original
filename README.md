@@ -1,47 +1,36 @@
-# ExplainCheck — Human-centred AI explanation and feedback prototype
-
-**README prose word count: 580 (headings included; code blocks and setup commands excluded).**
-
-## Project status
-
-ExplainCheck is an original, dependency-free browser prototype for an Intelligent Interactive Systems coursework project. It explores how a person reviews an AI-like support-ticket routing recommendation, inspects an explanation, makes a decision and reports whether the explanation helped.
-
-Implemented: six fictional tickets; local keyword-scoring recommendations; matched-keyword explanation cues and a manually written limitation; user decisions with the reference answer revealed after submission; feedback ratings, optional issue tags/comments, a local session summary and CSV export.
-
-Limitations: the predictor is a small rule engine, not a trained model. Its score is a heuristic, not a probability. Reference answers and difficulty labels are illustrative, not user-validated. Feedback is saved locally and does not update the rules. No real ticket data, external AI API or user study is included.
-
-## Technology and running
-
-HTML structures the page; CSS styles responsive layouts and states; JavaScript ES modules implement cases, rule scoring, explanations, decision evaluation and export. Browser `localStorage` keeps the demo session on this device. Node's built-in test runner checks core logic. There are no third-party application dependencies.
-
-Prerequisite: Python 3. From this repository folder, run:
-
-```powershell
+ExplainCheck — Human-centred AI explanation and feedback prototype
+README prose word count: 640 (headings included; code blocks and setup commands excluded).
+Project status
+ExplainCheck is an original, dependency-free browser prototype for an Intelligent Interactive Systems coursework project. It explores how a person reviews an AI-like support-ticket recommendation, inspects an explanation, makes a decision and reports whether the explanation helped.
+Implemented: six fictional tickets; a local keyword-scoring rule engine; matched-keyword explanation cues and a manually written limitation; independent user decisions with the reference answer shown after submission; feedback ratings, optional issue tags/comments; a local session summary and CSV export.
+This is an educational simulation, not an operational support tool. The rule score is a heuristic, not a probability. Reference answers and difficulty labels are illustrative and have not been validated with users. No trained model, external AI API, real ticket data, server-side database, user study or automatic learning from feedback is included.
+Technology stack
+HTML/CSS: page structure, responsive layout and focus states.
+JavaScript ES modules: case data, keyword scoring, explanations, decision evaluation, feedback, summary and CSV export.
+Browser `localStorage`: saves this demonstration session on the current device only.
+Node.js built-in test runner: tests core logic; no npm packages are required.
+Run and test
+Prerequisite: Python 3. From the repository root, run:
+```bash
 py -m http.server 8000 --directory app
 ```
-
-If `py` is unavailable, use `python -m http.server 8000 --directory app`. Open `http://localhost:8000` and stop the server with `Ctrl+C`. Use an HTTP server because the app uses JavaScript ES modules.
-
-## Tests
-
-Prerequisite: Node.js 18 or later. Run `npm test` from the repository root. Five tests cover scenario structure, decision correctness, summary calculations, CSV escaping and expected rule-based recommendations. All five passed during packaging; repeat them after edits and on the final submitted commit.
-
-## Architecture and evidence
-
-- `docs/figures/system-architecture.svg` — implemented browser modules, data flows and out-of-scope features.
-- `docs/figures/storyboard-1-review-prediction.svg`, `storyboard-2-question-error.svg` and `storyboard-3-send-feedback.svg` — three illustrated interaction paths.
-- `docs/STEP_BY_STEP_GUIDE.md` — run, test and publish instructions.
-- `docs/SCREENSHOT_PLACEMENT_GUIDE.md` — maps live screenshots to Figures 5–9 in the report.
-- `report/Assignment_2_Project_Report_FINAL_DRAFT.docx` — editable report; replace all placeholders and insert the real screenshots before submission.
-
-## Development record
-
-1. **Scope:** selected a fictional ticket-routing task; excluded authentication, remote services, databases and model training.
-2. **Interaction:** separated the ticket, recommendation, optional explanation, independent user choice, post-decision reference and feedback.
-3. **Evaluation:** kept user correctness, AI correctness and avoided simulated AI errors separate; helpfulness is not treated as proof of decision quality.
-4. **Data handling:** added local-only persistence, summary statistics and CSV export; feedback does not train the rule engine.
-5. **Verification:** five automated tests passed in the packaging environment. Browser evidence supplied during development showed the EC-03 decision comparison, feedback confirmation and session summary. Repeat the full walkthrough on the final commit. This record describes stages, not a fabricated Git history; add real commit links after publishing.
-
-## AI assistance
-
-ChatGPT assisted with the original app scaffold, fictional case wording.
+If `py` is unavailable, use `python -m http.server 8000 --directory app`. Open `http://localhost:8000`; stop the server with `Ctrl+C`. The app uses JavaScript ES modules, so serve it over HTTP instead of opening `index.html` directly.
+For automated tests, install Node.js 18 or later and run:
+```bash
+npm test
+```
+Five tests cover case structure, rule recommendations, decision evaluation, summary calculations and CSV escaping. They passed in the packaging environment; rerun them on the final submitted commit.
+Architecture and evidence
+`docs/figures/system-architecture.svg` — implemented modules, flows and out-of-scope features.
+`docs/figures/storyboard-1-review-prediction.svg`, `storyboard-2-question-error.svg`, `storyboard-3-send-feedback.svg` — three interaction paths.
+`docs/STEP\_BY\_STEP\_GUIDE.md` — run, test and publishing instructions.
+The Assignment 2 report is submitted separately through the course submission system, not stored in this repository.
+Development record
+Scope: chose fictional support-ticket routing to keep the decision task low-risk and inspectable; excluded login, a server, database and model training.
+Interaction: separated the case, recommendation, optional explanation, user decision, post-decision reference and feedback.
+Evaluation: kept user correctness, rule recommendation correctness and avoided simulated AI errors as separate measures. A positive helpfulness rating is not proof of decision quality.
+Data handling: added browser-local storage, session statistics and CSV export. Feedback does not change the rule engine.
+Verification: added five unit tests. Browser walkthrough evidence covers the EC-03 recommendation, explanation, decision, feedback confirmation and session summary. No participant evaluation has been conducted.
+The published history reflects the web-upload workflow: initial project-file upload (`ab80ab8`), followed by the `.gitignore` addition (`ebf3ab3`). The initial upload grouped the source and documents together; this record does not pretend there was a separate commit for every feature.
+AI assistance
+ChatGPT assisted with scaffolding the original HTML/CSS/JavaScript application, drafting fictional ticket text.
