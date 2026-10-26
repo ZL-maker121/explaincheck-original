@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#123b4a">
+  <meta name="description" content="ExplainCheck is an original educational prototype exploring AI explanations, human decisions and error feedback.">
+  <title>ExplainCheck — Human-centred AI decisions</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="app-frame">
+    <header class="topbar">
+      <a class="brand" href="#home" aria-label="ExplainCheck home">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span><strong>ExplainCheck</strong><small>HUMAN-CENTRED AI</small></span>
+      </a>
+      <nav class="primary-nav" aria-label="Main navigation">
+        <button class="nav-link active" data-view="case" type="button">Try a case</button>
+        <button class="nav-link" data-view="summary" type="button">Session summary <span id="nav-count" class="nav-count">0</span></button>
+        <button class="nav-link" data-view="about" type="button">About</button>
+      </nav>
+      <div class="top-status"><span class="status-dot"></span> Local demo</div>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">INTERACTIVE SYSTEM PROTOTYPE</p>
+          <h1>Don't just read the AI.<br><em>Check the decision.</em></h1>
+          <p class="hero-intro">Review a simulated support-ticket recommendation, inspect the evidence, make your own decision, and tell the system what worked.</p>
+        </div>
+        <aside class="demo-alert" role="note">
+          <span class="alert-icon" aria-hidden="true">i</span>
+          <div><strong>Simulated AI — educational demo</strong><p>Predictions, confidence values and explanations are pre-authored examples, not outputs from a trained model. Use fictional cases only.</p></div>
+        </aside>
+      </section>
+      <div id="view-root" aria-live="polite"></div>
+    </main>
+
+    <footer class="site-footer">
+      <span>ExplainCheck · Original coursework prototype</span>
+      <span>No data leaves this browser. Session records use local storage until cleared.</span>
+    </footer>
+  </div>
+  <script type="module" src="./src/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+{
+  "name": "explaincheck-original",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "An original, dependency-free, browser-based human-centred AI explanation and feedback prototype for IIS coursework.",
+  "scripts": {
+    "test": "node --test tests/core.test.js"
+  }
+}
